@@ -1,0 +1,102 @@
+<ons-toolbar>
+
+    <div class="center">
+        <span class="toolbar-button toolbar-button--material" style="width: 50px; height: 50px;">
+            <img src="https://logodix.com/logo/1115281.png" alt="" style="width: 90%; height: 90%;">
+        </span>
+    </div>
+
+</ons-toolbar>
+
+<!--Pesquisar-->
+<br>
+
+<!--título da página-->
+<div style="width: 100%; text-align: center;">
+    <h5 style="color: gainsboro;">Últimas postagens</h5>
+</div>
+<!-- Inicio Upload de imagens -->
+<ons-card style="width: 100%; text-align: center;">
+    <span>
+        <div><input [(ngModel)]="Titulo" class="text-input text-input--material" placeholder="Titulo" type="text"
+                required></div>
+        <br />
+    </span>
+    <br>
+    <!-- <input type="file" name="file" id="file" class="inputfile" (change)="onFileChanged($event)"> -->
+    <Label
+        class="input-custom-file mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+        Selecionar Imagem
+        <input id="inputfile" type="file" (change)="onFileChanged($event)">
+    </Label>
+    {{titleImg}}
+    <!-- <button for="file" class="button button--outline">Button</button> -->
+    <br>
+    <br>
+    <br>
+    <span>
+        <div><input [(ngModel)]="tagImg" class="text-input text-input--material" placeholder="Tags" type="text"
+                required></div>
+        <br />
+    </span>
+    <br>
+    <button (click)=sendImage(res)>Enviar</button>
+    <br>
+    <br>
+    <br>
+    <div *ngIf="load" class="progress-bar progress-bar--indeterminate">
+    </div>
+
+</ons-card>
+<!--Card normal-->
+<div *ngFor="let item of dados">
+    <ons-card>
+        <div style="text-align: center">
+
+            <!-- Inicio imagens -->
+            <img [src]="item.link" alt="Baixar" style="width: 300px; heigth: 300px; align: center; border-radius: 1%;">
+
+            <div class="content">
+
+                <!-- BOTOES -->
+
+                <br>
+                <div>
+                    <i class="material-icons" style="font-size: 3em;">
+                        save
+                    </i>
+                    <i class="material-icons" style="font-size: 3em; margin-left: 2em">
+                        share
+                    </i>
+                </div>
+                <div>
+                    <!-- TAGs (Material Design CSS) -->
+                    <!--<span *ngFor="let tag of dataImgur[item.id].tags" class="mdl-chip" style="margin: 1%;">
+                    <span class="mdl-chip__text" >{{tag}}</span>
+                </span> -->
+
+                </div>
+            </div>
+        </div>
+    </ons-card>
+    <br>
+    <br>
+</div>
+
+
+
+<!--Card ads-->
+<ons-card>
+    <div style="text-align: center">
+        <a href="#"> <img src="https://escritorio3.files.wordpress.com/2011/04/size_590_fala-mais-claro-por-chamada.jpg"
+                alt="" style="width: 300px; heigth: 300px; align: center; border-radius: 1%;"></a>
+    </div>
+</ons-card>
+<br>
+<br>
+
+<!--Carregando (Material Design CSS)-->
+
+<div style="margin: 20px auto; width: 100%; text-align: center;">
+    <ons-progress-circular indeterminate></ons-progress-circular>
+</div>

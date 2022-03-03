@@ -1,0 +1,78 @@
+<ons-toolbar>
+    
+    <div class="center">
+        <span class="toolbar-button toolbar-button--material" style="width: 50px; height: 50px;">
+            <img src="https://logodix.com/logo/1115281.png" alt="" style="width: 90%; height: 90%;">
+        </span>
+    </div>
+    
+    <div class="right">
+        <span *ngIf="!search" class="toolbar-button toolbar-button--material">
+            <i (click)="bool(true)" class="zmdi zmdi-search"></i>
+        </span>
+        
+        <span class="toolbar-button toolbar-button--material">
+            <i class="zmdi zmdi-menu"></i>
+        </span>
+    </div>
+</ons-toolbar>
+
+<!--Pesquisar-->
+<br>
+<div *ngIf="search"  style="width: 100%; text-align: center;">
+    <input type="search" value="" [(ngModel)]="searchText" #ctrl="ngModel" (keyup.enter)="pesquisa($event.target.value)" placeholder="Pesquisar Tag" class="search-input search-input--material" style="width: 95%; border-radius: 5px;">
+</div>
+<!--título da página-->
+<div style="width: 100%; text-align: center;">
+    <h5 style="color: gainsboro;" >Últimas postagens</h5>
+</div>
+
+<!--Card normal-->
+<div *ngFor="let item of dataImgur | tags : searchText : i; index as i"> 
+<ons-card>
+    <div style="text-align: center">
+        <img [attr.data-index]="i" [src]="item.link" alt="Baixar" style="width: 300px; heigth: 300px; align: center; border-radius: 1%;">
+        
+        <div class="content">
+            
+            <!-- BOTOES -->
+            
+            <br>
+            <div>	
+                <i (click)="DownloadProfilePic(item.link)" class="material-icons" style="font-size: 3em;">
+                    save
+                </i>
+                <i class="material-icons" style="font-size: 3em; margin-left: 2em">
+                    share
+                </i>
+            </div>
+            <div>
+                <!-- TAGs (Material Design CSS) -->
+                <!--<span *ngFor="let tag of dataImgur[item.id].tags" class="mdl-chip" style="margin: 1%;">
+                    <span class="mdl-chip__text" >{{tag}}</span>
+                </span> -->
+                
+            </div>
+        </div>
+    </div>
+</ons-card>
+<br>
+<br>
+</div>
+
+
+
+<!--Card ads-->
+<ons-card>
+    <div style="text-align: center">
+        <a href="#" > <img src="https://escritorio3.files.wordpress.com/2011/04/size_590_fala-mais-claro-por-chamada.jpg" alt="" style="width: 300px; heigth: 300px; align: center; border-radius: 1%;"></a>
+    </div>
+</ons-card>
+<br>
+<br>
+
+<!--Carregando (Material Design CSS)-->
+
+<div *ngIf="carregando"  style="margin: 20px auto; width: 100%; text-align: center;">
+    <ons-progress-circular indeterminate></ons-progress-circular>
+</div>					

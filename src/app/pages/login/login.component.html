@@ -1,0 +1,125 @@
+<ons-toolbar>   
+  <div class="right">
+    <span class="toolbar-button toolbar-button--material">
+      <i class="zmdi zmdi-plus"></i>
+    </span>
+  </div>
+</ons-toolbar>
+
+<!--Campo imagem de perfil-->
+<ons-card *ngIf="!dataService.isLoggedIn()">
+  <div style="text-align: center; padding: 0px;">
+    <img src="https://logodownload.org/wp-content/uploads/2019/07/loggi-logo.png" style="width: 200px; height: 100%; align-content: center; padding: 10%;" alt="Logo">
+
+
+<!--Campo login-->
+
+<h2 class="text-center">Login</h2>
+<div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-6 col-md-offset-3">
+        <div class="jumbotron">
+            <form [formGroup]="angForm" (ngSubmit)="postdata(angForm)" autocomplete="off" >
+                <div class="form-group">
+                    <ons-input type="text" name="email" formControlName="email" autocomplete="off" class="form-control input-sm" placeholder="Email Address" id="nickname" modifier="underbar" placeholder="Nickname" float></ons-input>
+ 
+                </div>
+                <br>
+                <div class="form-group">
+                    <ons-input type="password" name="Password" formControlName="password"  autocomplete="off" class="form-control input-sm" placeholder="Password"float></ons-input>
+                </div>
+                <br>
+                <ons-button (click)="postdata(angForm)" [disabled]="!angForm.valid" id="#push-button">Entrar</ons-button>
+                <ons-button routerLink="/register" routerLinkActive="active">Cadastrar</ons-button>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-3">
+    </div>
+ 
+</div>
+    </div>
+
+</ons-card>
+
+<!-- Alerta -->
+<div *ngIf="dataService.alerta">
+  <div class="alert-dialog-mask"></div>
+  <div class="alert-dialog">
+      <div class="alert-dialog-container">
+          <div class="alert-dialog-content">
+              {{dataService.alertaTexto}}
+          </div>
+
+          <div class="alert-dialog-footer">
+              <button (click)="dataService.alertaController('')"
+                  class="alert-dialog-button alert-dialog-button--primal">OK</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Se Logado -->
+<div *ngIf="dataService.isLoggedIn()">
+
+          
+
+<!--Card informações do perfil-->
+  
+  <ons-card>
+    <div style="text-align: center">
+                  <a href="#" > <img [src]="user" alt="Baixar" style="width: 50px; height: 50px; text-align: center; border-radius: 100%;"></a>
+                  <div class="list-item__title list-item--material__title">@{{dataService.getToken()}}</div>
+
+<!-- Botao Seguindo -->
+          <span class="mdl-chip" style="margin: 1%; background-color:black; color: white;">
+            <span class="mdl-chip__text" >Seguindo</span>
+          </span>
+
+                  <div class="list-item__subtitle list-item--material__subtitle">esta é minha descrição massa bixo sei la oq escrevo aqui  isso é só um exemplo máximo 50 caracteres</div>
+                  <p style="margin-top: 5px;">
+                    <ons-button (click)="logout()" >Deslogar</ons-button>
+                  </p>
+      <div class="content">
+        </div>
+      
+    </div>
+</ons-card>
+<!--título da página-->
+  
+<h5 style="color: gainsboro;" >Postagens deste perfil:</h5>
+
+<!--Card normal-->
+  
+<ons-card *ngFor="let item of imgurData; let i = index" [attr.data-index]="i" >
+  <div style="text-align: center">
+      <a href="#" > <img [src]="item.link" alt="Baixar" style="z-index: -1; width: 100%; height: 100%; align-content: center; border-radius: 1%;"></a>
+      
+      <div class="content">
+          
+<!-- BOTOES -->
+          
+          <br>
+          <div>	
+              <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjtbT0GPAvCv_BaxTDO1AQkByLVbUYfJc_wv9X7sgfgxDUGK5P-Q&s" download="myimage"><i class="material-icons" style="font-size: 3em; color: gainsboro;">
+                  save
+              </i></a>
+              <i class="material-icons" style="font-size: 3em; margin-left: 2em; color: gainsboro;">
+                  share
+              </i>
+          </div>
+          <div>
+<!-- TAGs (Material Design CSS) -->
+
+              <span *ngFor="let tag of tagsImg[i]" class="mdl-chip" style="margin: 1%;">
+                  <span class="mdl-chip__text" (click)="dataService.deleteImage(item.Id)" >{{tag}}</span>
+              </span>
+
+          </div>
+      </div>
+  </div>
+</ons-card>
+<br>
+<br>
+</div>

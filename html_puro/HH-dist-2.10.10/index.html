@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- HTML 4 -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<!-- HTML5 -->
+	<meta charset="utf-8" />
+
+	<!--Links-->
+	<link rel="stylesheet" href="css/onsenui.css">
+	<link rel="stylesheet" href="css/onsen-css-components.min.css">
+	<script src="js/onsenui.min.js"></script>
+
+	<!--Material Design-->
+	<link rel="stylesheet" href="md/material.min.css">
+	<script src="md/material.min.js"></script>
+	<script src="js/meu/onsenjs.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+</head>
+
+<body>
+	<div style="flex: content; justify-content: center; text-align: center;">
+
+		<!--Abas de baixo-->
+
+		<ons-tabbar position="bottom" position="auto">
+			<ons-tab page="tab1.html" label="" icon="none" active-icon="none"
+				style="background-image: url('svg/home.svg'); background-repeat:no-repeat; background-position:center; background-size: 20px;"
+				active>
+			</ons-tab>
+			<ons-tab page="tab2.html" label="" icon="none" active-icon="none"
+				style="background-image: url('svg/explore.svg'); background-repeat:no-repeat; background-position:center; background-size: 23px;">
+			</ons-tab>
+			<ons-tab page="tab3.html" label="" icon="none" badge="4" active-icon="none"
+				style="background-image: url('svg/message.svg'); background-repeat:no-repeat; background-position:center; background-size: 20px;">
+			</ons-tab>
+			<ons-tab page="tab4.html" label="" icon="none" active-icon="none"
+				style="background-image: url('svg/profile.svg'); background-repeat:no-repeat; background-position:center; background-size: 20px;">
+			</ons-tab>
+		</ons-tabbar>
+
+
+
+		<!--ABA 1 Feed Inicial-->
+		<template id="tab1.html">
+			<ons-page id="Tab1">
+
+
+				<!--Aba Top Bar-->
+				<ons-toolbar>
+
+					<div class="center"
+						style="background-image: url('img/icon/ico.png'); background-repeat:no-repeat; background-position:center; background-size: 15%;">
+					</div>
+
+					<div class="right">
+						<span class="toolbar-button toolbar-button--material">
+							<i class="zmdi zmdi-plus"></i>
+						</span>
+					</div>
+					<div class="left">
+						<span class="toolbar-button toolbar-button--material">
+							<i class="zmdi zmdi-none"></i>
+						</span>
+					</div>s
+				</ons-toolbar>
+
+				<!--título da página-->
+
+				<h6 style="color: gainsboro;">Últimas postagens</h6>
+
+				<!--Card normal-->
+
+
+				<div style="text-align: center; margin: 3%;">
+					<a href="#">
+
+						<div style="height: 330px; overflow: hidden;
+			-webkit-border-radius: 10px;
+			-khtml-border-radius: 10px;	
+			-moz-border-radius: 10px;
+			border-radius: 10px;
+			border-color: rgba(255, 255, 255, 0);
+			background: url(https://www.ecopetit.cat/wpic/mpic/18-187604_sky-phone-wallpaper-hd.jpg);
+			width: 100%;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			display: flex;
+			position: relative;
+			flex-direction: column;
+			justify-content: flex-end;">
+							<div
+								style="Position: absolute; Left: 0; Top: 0; margin-left: 5px; color: rgba(1, 1, 1, 0.54); text-shadow: 1px 0 0 rgba(255, 255, 255, 0.247);">
+								<p><small>by: @andre_dono</small></p>
+							</div>
+							<div style="background: rgba(1, 1, 1, 0.300); margin-top: 5px;">
+								<div>
+
+									<!-- TAGs (Material Design CSS) -->
+									<span class="mdl-chip" style="margin: 1%; margin-top: 10px;">
+										<span class="mdl-chip__text"
+											style="flex: content; justify-content: center;"><small>Exemplo
+												Tag</small></span>
+									</span>
+								</div>
+								<!-- BOTOES -->
+								<div style="display: flex; justify-content: center;">
+
+									<!-- BOTAO SALVAR -->
+									<a href="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+										download="myimage">
+										<svg style="isolation:isolate; margin-right: 30px;" viewBox="0 0 40 40"
+											width="40pt" height="40pt">
+											<defs>
+												<clipPath id="_clipPath_x0QLUC36ibOtKnFfYDZ6kcyTqkDQ5Wys">
+													<rect width="40" height="40" />
+												</clipPath>
+											</defs>
+											<g clip-path="url(#_clipPath_x0QLUC36ibOtKnFfYDZ6kcyTqkDQ5Wys)">
+												<path
+													d=" M 18.422 6.531 L 18.422 20.266 L 13.294 14.776 L 11.076 17.176 L 20 26.822 L 28.924 17.176 L 26.706 14.778 L 21.578 20.264 L 21.578 6.531 L 18.422 6.531 Z  M 4.222 19.294 L 4.222 29.528 C 4.222 31.394 5.652 32.939 7.378 32.939 L 32.622 32.939 C 34.348 32.939 35.778 31.394 35.778 29.528 L 35.778 19.294 L 32.622 19.294 L 32.622 29.528 L 7.378 29.528 L 7.378 19.294 L 4.222 19.294 Z "
+													fill="rgb(255,255,255)" />
+											</g>
+										</svg>
+									</a>
+									<!-- BOTAO Compartilhar -->
+									<a>
+										<svg style="isolation:isolate; margin-left: 30px;" viewBox="0 0 40 40"
+											width="40pt" height="40pt">
+											<defs>
+												<clipPath id="_clipPath_ozKibz5EjweBmEbRTQ04xCQbgq8euYBL">
+													<rect width="40" height="40" />
+												</clipPath>
+											</defs>
+											<g clip-path="url(#_clipPath_ozKibz5EjweBmEbRTQ04xCQbgq8euYBL)">
+												<path
+													d=" M 28.18 6.531 C 25.921 6.531 24.09 8.34 24.09 10.571 C 24.09 10.834 24.127 11.077 24.176 11.33 L 14.459 16.926 C 13.724 16.303 12.788 15.96 11.82 15.959 C 9.561 15.959 7.729 17.768 7.729 20 C 7.729 22.232 9.561 24.041 11.82 24.041 C 12.831 24.041 13.747 23.673 14.462 23.072 L 24.176 28.67 C 24.123 28.92 24.094 29.174 24.09 29.429 C 24.09 31.66 25.921 33.469 28.18 33.469 C 30.439 33.469 32.271 31.66 32.271 29.429 C 32.271 27.197 30.439 25.388 28.18 25.388 C 27.169 25.388 26.253 25.755 25.538 26.356 L 15.824 20.757 C 15.873 20.506 15.91 20.263 15.91 20 C 15.91 19.737 15.873 19.495 15.824 19.242 L 25.54 13.644 C 26.274 14.268 27.211 14.611 28.18 14.612 C 30.439 14.612 32.271 12.803 32.271 10.571 C 32.271 8.34 30.439 6.531 28.18 6.531 Z "
+													fill="rgb(255,255,255)" />
+											</g>
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
+				<br>
+
+
+
+				<!--Card vídeo-->
+
+
+				<div style="text-align: center; margin: 3%;">
+					<a href="#">
+
+						<div style="height: 320px;  width: auto;
+						overflow: hidden;
+			
+			-webkit-border-radius: 10px;
+			-khtml-border-radius: 10px;	
+			-moz-border-radius: 10px;
+			border-radius: 10px;
+			border: rgba(1, 1, 1, 0.54);
+			background: rgba(0, 0, 0, 0); margin-top: 5px;;
+			width: 100%;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			display: flex;
+			position: relative;
+			flex-direction: column;
+			justify-content: flex-end;">
+							<div
+								style="position: absolute; left: 0; top: 0; display: flex; justify-content: center; margin-bottom: -5px; margin-top: 0px; height: 100%; width: 100%; z-index: -1">
+								<video autoplay muted loop>
+									<source
+										src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+										type="video/mp4">
+									Seu dispositivo não suporta este tipo video.
+								</video>
+							</div>
+
+
+							<div
+								style="Position: absolute; Left: 0; Top: 0; margin-left: 5px; color: rgba(136, 94, 94, 0.54); text-shadow: 1px 0 0 rgba(255, 255, 255, 0.247);">
+								<p><small>by: @andre_dono</small></p>
+							</div>
+							<div style="background: rgba(1, 1, 1, 0.300); margin-top: 5px;">
+								<div>
+
+									<!-- TAGs (Material Design CSS) -->
+									<span class="mdl-chip" style="margin: 1%; margin-top: 10px;">
+										<span class="mdl-chip__text"
+											style="flex: content; justify-content: center;"><small>Exemplo
+												Tag</small></span>
+									</span>
+								</div>
+								<!-- BOTOES -->
+								<div style="display: flex; justify-content: center;">
+
+									<!-- BOTAO SALVAR -->
+									<a href="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+										download="myimage">
+										<svg style="isolation:isolate; margin-right: 30px;" viewBox="0 0 40 40"
+											width="40pt" height="40pt">
+											<defs>
+												<clipPath id="_clipPath_x0QLUC36ibOtKnFfYDZ6kcyTqkDQ5Wys">
+													<rect width="40" height="40" />
+												</clipPath>
+											</defs>
+											<g clip-path="url(#_clipPath_x0QLUC36ibOtKnFfYDZ6kcyTqkDQ5Wys)">
+												<path
+													d=" M 18.422 6.531 L 18.422 20.266 L 13.294 14.776 L 11.076 17.176 L 20 26.822 L 28.924 17.176 L 26.706 14.778 L 21.578 20.264 L 21.578 6.531 L 18.422 6.531 Z  M 4.222 19.294 L 4.222 29.528 C 4.222 31.394 5.652 32.939 7.378 32.939 L 32.622 32.939 C 34.348 32.939 35.778 31.394 35.778 29.528 L 35.778 19.294 L 32.622 19.294 L 32.622 29.528 L 7.378 29.528 L 7.378 19.294 L 4.222 19.294 Z "
+													fill="rgb(255,255,255)" />
+											</g>
+										</svg>
+									</a>
+									<!-- BOTAO Compartilhar -->
+									<a>
+										<svg style="isolation:isolate; margin-left: 30px;" viewBox="0 0 40 40"
+											width="40pt" height="40pt">
+											<defs>
+												<clipPath id="_clipPath_ozKibz5EjweBmEbRTQ04xCQbgq8euYBL">
+													<rect width="40" height="40" />
+												</clipPath>
+											</defs>
+											<g clip-path="url(#_clipPath_ozKibz5EjweBmEbRTQ04xCQbgq8euYBL)">
+												<path
+													d=" M 28.18 6.531 C 25.921 6.531 24.09 8.34 24.09 10.571 C 24.09 10.834 24.127 11.077 24.176 11.33 L 14.459 16.926 C 13.724 16.303 12.788 15.96 11.82 15.959 C 9.561 15.959 7.729 17.768 7.729 20 C 7.729 22.232 9.561 24.041 11.82 24.041 C 12.831 24.041 13.747 23.673 14.462 23.072 L 24.176 28.67 C 24.123 28.92 24.094 29.174 24.09 29.429 C 24.09 31.66 25.921 33.469 28.18 33.469 C 30.439 33.469 32.271 31.66 32.271 29.429 C 32.271 27.197 30.439 25.388 28.18 25.388 C 27.169 25.388 26.253 25.755 25.538 26.356 L 15.824 20.757 C 15.873 20.506 15.91 20.263 15.91 20 C 15.91 19.737 15.873 19.495 15.824 19.242 L 25.54 13.644 C 26.274 14.268 27.211 14.611 28.18 14.612 C 30.439 14.612 32.271 12.803 32.271 10.571 C 32.271 8.34 30.439 6.531 28.18 6.531 Z "
+													fill="rgb(255,255,255)" />
+											</g>
+										</svg>
+									</a>
+								</div>
+							</div>
+						</div>
+					</a>
+				</div>
+				<br>
+
+
+				<!--Card ADS-->
+
+
+				<div style="text-align: center; margin: 3%;">
+					<a href="#">
+						<div style="height: 330px; overflow: hidden;
+				-webkit-border-radius: 10px;
+				-khtml-border-radius: 10px;	
+				-moz-border-radius: 10px;
+				border-radius: 10px;
+				background: url(https://www.idealmarketing.com.br/blog/wp-content/uploads/2018/06/marketing-digital-lateral.png);
+				width: 100%;
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;">
+							<div style="background:rgba(1, 1, 1, 0.300); margin-top: 5px;">
+
+								<!-- BOTOES -->
+								<div style="display: flex; justify-content: center;">
+								</div>
+							</div>
+						</div>
+						<!-- <img src="https://blog.bling.com.br/wp-content/uploads/2017/12/12618-NOJLQI.jpg" alt="Baixar" style="z-index: -1; width: 100%; height: 100%; align-content: center; border-radius: 1%;"> -->
+					</a>
+
+					<div class="content">
+
+
+
+						<br>
+
+
+					</div>
+				</div>
+				<br>
+		</template>
+		<!--ABA 2 Explorar-->
+		<template id="tab2.html">
+			<ons-page id="Tab2">
+				<!--Aba Top Bar-->
+				<ons-toolbar>
+
+					<div class="center"
+						style="background-image: url('img/icon/ico.png'); background-repeat:no-repeat; background-position:center; background-size: 15%;">
+					</div>
+
+					<div class="right">
+						<span class="toolbar-button toolbar-button--material">
+							<i class="zmdi zmdi-none"></i>
+						</span>
+					</div>
+					<div class="left">
+						<span class="toolbar-button toolbar-button--material">
+							<i class="zmdi zmdi-none"></i>
+						</span>
+					</div>
+				</ons-toolbar>
+
+				<!--Pesquisar-->
+				<br>
+				<input type="search" value="" placeholder="Pesquise uma tag, explore!"
+					class="search-input search-input--material" style="width: 95%; border-radius: 5px;">
+
+
+
+
+				<br>
+				<br>
+
+				<!--Carregando (Material Design CSS)-->
+
+				<div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>
+
+		</template>
+		<!--ABA 3 Mensagens-->
+		</ons-page>
+		</template>
+
+
+
+
+		<template id="tab3.html">
+			<ons-page id="Tab3">
+				<!--Aba 3 top bar-->
+				<ons-toolbar>
+					<div class="center" style="text-align: center;">Chats</div>
+				</ons-toolbar>
+				<br>
+				<!--Carregando (Material Design CSS)-->
+
+				<div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>
+				<br>
+				<br>
+
+				<!--Mensagens do chat-->
+				<ul class="list list--material">
+					<li class="list-item list-item--material">
+						<div class="list-item__left list-item--material__left">
+							<img class="list-item__thumbnail list-item--material__thumbnail"
+								src="https://i.pinimg.com/236x/31/58/1f/31581f7c33eae99124f9aeba8c9aa2fc.jpg"
+								alt="Cute kitten">
+						</div>
+
+						<div class="list-item__center list-item--material__center">
+							<div class="list-item__title list-item--material__title">Grupo de Sei la</div>
+							<div class="list-item__subtitle list-item--material__subtitle">Victor: To gr rsrsrs
+							</div>
+						</div>
+					</li>
+
+					<li class="list-item list-item--material">
+						<div class="list-item__left list-item--material__left">
+							<img class="list-item__thumbnail list-item--material__thumbnail"
+								src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4dr2Kzs61Fvb2YybBjtvDs4HKpyG1krLYAGeP7npwzZJBDCFw&s"
+								alt="Cute kitten">
+						</div>
+
+						<div class="list-item__center list-item--material__center">
+							<div class="list-item__title list-item--material__title">Grupo de Grupo</div>
+							<div class="list-item__subtitle list-item--material__subtitle">Mario: cida kkkjj
+							</div>
+						</div>
+					</li>
+
+					<li class="list-item list-item--material">
+						<div class="list-item__left list-item--material__left">
+							<img class="list-item__thumbnail list-item--material__thumbnail"
+								src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAAG4Z444jQmawv6HGnhEfjr9WTTl-mYGIeh5zzFQKuqJBZ6vnqQ&s"
+								alt="Cute kitten">
+						</div>
+
+						<div class="list-item__center list-item--material__center">
+							<div class="list-item__title list-item--material__title">Grupo-chan:</div>
+							<div class="list-item__subtitle list-item--material__subtitle">Kaio: to em pé, fi
+							</div>
+						</div>
+					</li>
+
+
+					<li class="list-item list-item--material">
+						<div class="list-item__left list-item--material__left">
+							<img class="list-item__thumbnail list-item--material__thumbnail"
+								src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/05b184de-5227-4610-b95f-b5eb91a5df23/d9mz5ef-02345d1c-3280-4ddd-8d5f-a1439651b18e.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzA1YjE4NGRlLTUyMjctNDYxMC1iOTVmLWI1ZWI5MWE1ZGYyM1wvZDltejVlZi0wMjM0NWQxYy0zMjgwLTRkZGQtOGQ1Zi1hMTQzOTY1MWIxOGUucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.UnwjB4E9kKaEhQh9LteE_oZNZxid27Y0nGffjNggFs0"
+								alt="Cute kitten">
+						</div>
+
+						<div class="list-item__center list-item--material__center">
+							<div class="list-item__title list-item--material__title">Grupo Baka-Babaka</div>
+							<div class="list-item__subtitle list-item--material__subtitle">Cida: um tal de mario
+								me ligou '-'</div>
+						</div>
+					</li>
+				</ul>
+		</template>
+		<!--ABA 4 Perfil-->
+
+		<template id="tab4.html">
+			<ons-page id="Tab4">
+				<ons-toolbar>
+					<div class="center" style="text-align: center;">Perfil</div>
+				</ons-toolbar>
+
+
+				<!--Campo imagem de logo-->
+				<ons-card>
+					<div style="text-align: center; padding: 0px;">
+						<img src="https://logodownload.org/wp-content/uploads/2019/07/loggi-logo.png"
+							style="width: 200px; height: 100%; align-content: center; padding: 0%;" alt="Logo">
+
+
+						<!--Campo login-->
+
+						<p>
+							<ons-input id="nickname" modifier="underbar" placeholder="Nickname" float></ons-input>
+						</p>
+						<p>
+							<ons-input id="senha" modifier="underbar" type="password" placeholder="Senha" float>
+							</ons-input>
+						</p>
+						<div style="text-align: center; padding: 5px;">
+							<p style="margin-top: 5px;">
+								<ons-button id="#push-button" onclick="teste()">Entrar</ons-button>
+								<ons-button onclick="login()">Cadastrar</ons-button>
+							</p>
+						</div>
+						<span class="mdl-chip" style="margin: 3%; align-content: center;">
+							<span class="mdl-chip__text">Texto informativo de login</span>
+						</span>
+					</div>
+
+				</ons-card>
+
+			</ons-page>
+		</template>
+
+
+		<!--Tela Perfil-->
+
+		<template id="profile.html">
+			<ons-page id="Profile">
+				<ons-toolbar>
+					<div class="center" style="text-align: center;">Perfil</div>
+				</ons-toolbar>
+
+
+				<!--Campo imagem de perfil-->
+				<ons-card>
+					<img src="https://logodownload.org/wp-content/uploads/2019/07/loggi-logo.png"
+						style="width: 30px; height: 30px; align-content: center; padding-top: 50%;" alt="Logo">
+
+
+					<!--Campo login-->
+					<div style="text-align: center; margin-top: 30px;">
+						<p>
+							<ons-input id="nickname" modifier="underbar" placeholder="Nickname" float></ons-input>
+						</p>
+						<p>
+							<ons-input id="senha" modifier="underbar" type="password" placeholder="Senha" float>
+							</ons-input>
+						</p>
+						<p style="margin-top: 30px;">
+						</p>
+						<span class="mdl-chip" style="margin: 3%; align-content: center;">
+							<span class="mdl-chip__text">Texto </span>
+						</span>
+					</div>
+
+				</ons-card>
+
+			</ons-page>
+		</template>
+
+		<!--ABA 4 Perfil-->
+
+		<template id="tab4.html">
+			<ons-page id="Tab4">
+				<ons-toolbar>
+					<div class="center" style="text-align: center;">Perfil</div>
+				</ons-toolbar>
+
+
+				<!--Campo imagem de logo-->
+				<ons-card>
+					<div style="text-align: center; padding: 0px;">
+						<img src="https://logodownload.org/wp-content/uploads/2019/07/loggi-logo.png"
+							style="width: 200px; height: 100%; align-content: center; padding: 0%;" alt="Logo">
+
+
+						<!--Campo login-->
+
+						<p>
+							<ons-input id="nickname" modifier="underbar" placeholder="Nickname" float></ons-input>
+						</p>
+						<p>
+							<ons-input id="senha" modifier="underbar" type="password" placeholder="Senha" float>
+							</ons-input>
+						</p>
+						<div style="text-align: center; padding: 5px;">
+							<p style="margin-top: 5px;">
+								<ons-button id="#push-button" onclick="logar()">Entrar</ons-button>
+								<ons-button onclick="cadastrar()">Cadastrar</ons-button>
+							</p>
+						</div>
+						<span class="mdl-chip" style="margin: 3%; align-content: center;">
+							<span class="mdl-chip__text">Texto informativo de login</span>
+						</span>
+					</div>
+
+				</ons-card>
+
+			</ons-page>
+		</template>
+
+
+		<!--Tela Perfil-->
+
+		<template id="profile.html">
+			<ons-page id="Profile">
+				<ons-toolbar>
+					<div class="center" style="text-align: center;">Perfil</div>
+				</ons-toolbar>
+
+
+				<!--Campo imagem de perfil-->
+				<ons-card>
+					<img src="https://logodownload.org/wp-content/uploads/2019/07/loggi-logo.png"
+						style="width: 30px; height: 30px; align-content: center; padding-top: 50%;" alt="Logo">
+
+
+					<!--Campo login-->
+					<div style="text-align: center; margin-top: 30px;">
+						<p>
+							<ons-input id="nickname" modifier="underbar" placeholder="Nickname" float></ons-input>
+						</p>
+						<p>
+							<ons-input id="senha" modifier="underbar" type="password" placeholder="Senha" float>
+							</ons-input>
+						</p>
+						<p style="margin-top: 30px;">
+						</p>
+						<span class="mdl-chip" style="margin: 3%; align-content: center;">
+							<span class="mdl-chip__text">Texto </span>
+						</span>
+					</div>
+
+				</ons-card>
+
+			</ons-page>
+		</template>
+	</div>
+</body>
+
+</html>

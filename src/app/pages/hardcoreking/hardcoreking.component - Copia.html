@@ -1,0 +1,74 @@
+<ons-card *ngFor="let item of dados">
+    <div  style="text-align: center">
+            <button type="button" value="" (click)="salvarimagem(item.id, $event.target.value, i, 'deleteimg')"  class="mdl-chip__action"><i class="material-icons">cancel</i></button>
+    <img [src]="item.photo" alt="Baixar" style="width: 100px; heigth: 100px; align: center; border-radius: 1%;">
+    <span class="mdl-chip">
+            <ons-input 
+            style="width: 100%;"
+            value=""
+            placeholder="ATUALIZAR IMAGEM"
+            (keyup.enter)="salvarJson(item.id, $event.target.value, i, 'link')"
+            type="text"
+            min="0"
+            max="9999">
+            </ons-input>
+        </span>
+
+    <div class="content">
+    
+    <!-- BOTOES -->
+    
+        <br>
+        <div>
+            <i  class="material-icons" style="font-size: 3em;">
+            save
+            </i>
+            <i class="material-icons" style="font-size: 3em; margin-left: 2em">
+            share
+            </i>
+        </div>
+        <div>
+    <!-- TAG (Material Design CSS) -->
+            <!-- Basic Chip -->
+            <span *ngFor="let tag of dados[item.id].tags;let i = index" class="mdl-chip">
+                    <span class="mdl-chip__text">{{tag}}</span>
+                    <button type="button" value="" (click)="salvarJson(item.id, $event.target.value, i, 'delete')"  class="mdl-chip__action"><i class="material-icons">cancel</i></button>
+                    <ons-input 
+                    value=""
+                    placeholder="ATUALIZAR TAG"
+                    (keyup.enter)="salvarJson(item.id, $event.target.value, i, 'update')"
+                    type="text"
+                    min="0"
+                    max="200">
+                </ons-input>
+                <ons-input 
+                value=""
+                placeholder="NOVA TAG"
+                (keyup.enter)="salvarJson(item.id, $event.target.value, i, 'new')"
+                type="text"
+                min="0"
+                max="200">
+            </ons-input> 
+            </span>
+        </div>
+        
+    </div>
+    </div>
+    <div style="width: 100%; text-align: center;">
+    <span class="mdl-chip">
+            <ons-input 
+            style="width: 100%;"
+            placeholder="NOVA IMAGEM (LINK)"
+            value=""
+            (keyup.enter)="salvarimagem(item.id, $event.target.value, i, 'novo')"
+            type="text"
+            min="0"
+            max="9999">
+            </ons-input>
+        </span>
+    </div>
+
+
+    <button (click)="createAlbum()" >Criar album</button>
+
+    </ons-card>

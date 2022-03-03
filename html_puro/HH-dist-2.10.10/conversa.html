@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- HTML 4 -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- HTML5 -->
+	<meta charset="utf-8"/>
+	
+<!--Links-->
+	<link rel="stylesheet" href="css/onsenui.css">
+	<link rel="stylesheet" href="css/onsen-css-components.min.css">
+	<script src="js/onsenui.min.js"></script>
+	
+<!--Material Design-->
+	<link rel="stylesheet" href="md/material.min.css">
+	<script src="md/material.min.js"></script>
+	<script src="js/meu/onsenjs.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	
+</head>
+<body>
+	<div align="center">
+		<ons-page>
+
+
+
+
+<!--Abas de baixo-->
+			
+			<ons-tabbar position="bottom" swipeable position="auto">
+				<ons-tab page="tab1.html" label="" icon="md-home" active-icon="md-home" active>
+				</ons-tab>
+			</ons-tabbar>
+		</ons-page>
+
+
+<!--ABA-->		
+		<template id="tab1.html">
+			<ons-page id="Tab1" >
+
+
+<!--Aba Top Bar-->
+			<ons-toolbar>
+					
+				 <!--foto de perfil do usuário-->
+				<div class="center">
+					  <span class="toolbar-button toolbar-button--material" style="width: 50px; height: 50px;">
+						<img src="https://i.pinimg.com/236x/31/58/1f/31581f7c33eae99124f9aeba8c9aa2fc.jpg" alt="" style="width: 60%; height: 60%; border-radius: 100%;">
+					  </span>
+					</div>
+					  
+					<div class="left">
+					  <span class="toolbar-button toolbar-button--material">
+							<i class="zmdi zmdi-chevron-left"></i>
+						</span>
+					</div>
+			</ons-toolbar>
+
+<!--Mensagens do chat de outro usuário-->
+<div class="left">
+<ons-card style="padding: 2%; margin-right: 60%; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;">
+		<div class="center">
+		  Mario:
+		</div>
+		<div class="content">
+				<div class="list-item__subtitle list-item--material__subtitle">Thor e thor rsrsrs</div>
+		</div>
+</ons-card>
+</div>
+<!--Mensagens do chat suas-->
+<div class="right">
+<ons-card style="padding: 2%; margin-left: 50%; border-top-left-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;">
+		<div class="center">
+		  Você:
+		</div>
+		<div class="content">
+				<div class="list-item__subtitle list-item--material__subtitle">vc nao fala nada com nada</div>
+		</div>
+</ons-card>	
+</div>		
+						
+<!--Campo de mensagem-->			
+<ons-bottom-toolbar>
+		<textarea style="width: 100%;" class="textarea" rows="3" placeholder="Digite aqui:"></textarea>
+	</ons-bottom-toolbar>
+<br>
+<br>
+
+	</ons-page>
+</template>	
+
+	</body>
+</html>

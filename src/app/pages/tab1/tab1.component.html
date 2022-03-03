@@ -1,0 +1,362 @@
+<ons-toolbar #h1 *ngIf="!sendMenu">
+
+    <div class="center"
+        style="background-image: url('assets/img/icon/ico.png'); background-repeat:no-repeat; background-position:center; background-size: 15%;">
+    </div>
+
+
+    <div class="right">
+        <Label class="input-custom-file toolbar-button toolbar-button--material" *ngIf="dataService.isLoggedIn()">
+            <i class="zmdi zmdi-plus"></i>
+            <input id="inputfile" type="file" (change)="onFileChanged($event)">
+        </Label>
+
+    </div>
+    <div class="left">
+        <span class="toolbar-button toolbar-button--material">
+            <i class="zmdi zmdi-none"></i>
+        </span>
+    </div>
+</ons-toolbar>
+
+<!-- Inicio Upload -->
+
+<div *ngIf="sendMenu">
+
+    <!--Aba Top Bar-->
+    <ons-toolbar>
+
+        <div class="center" style="text-align: center;">Enviar arquivo</div>
+
+
+        <div class="right">
+            <span class="toolbar-button toolbar-button--material">
+                <i (click)="sendImage(imagem)" class="zmdi zmdi-check"></i>
+            </span>
+        </div>
+        <div class="left">
+            <span class="toolbar-button toolbar-button--material">
+                <i (click)="sendMenuToggle()" class="zmdi zmdi-chevron-left"></i>
+            </span>
+        </div>
+    </ons-toolbar>
+
+    <br>
+    <br>
+    <div>
+
+        <div style="text-align: center; margin: 3%;">
+
+
+            <div style="height: 230px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;	
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: rgba(1, 1, 1, 0.54);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: flex-end;" [ngStyle]="{'background-image': 'url(' + imagem + ')', 'height' : ''+300+'px'}">
+            </div>
+            <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjtbT0GPAvCv_BaxTDO1AQkByLVbUYfJc_wv9X7sgfgxDUGK5P-Q&s" alt="Baixar" style="z-index: -1; width: 100%; height: 100%; align-content: center; border-radius: 1%;"> -->
+
+
+            <div class="content">
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+        <!-- TAGs (Material Design CSS) -->
+        <div style="text-align: center;" *ngFor="let item of tagsUpload; let i = index" [attr.data-index]="i">
+            <span *ngFor="let tag of tagsUpload[i]" class="mdl-chip" style="margin: 1%; margin-top: 10px; ">
+                <span class="mdl-chip__text"
+                    style="flex: content; justify-content: center;"><small>{{tag}}</small></span>
+            </span>
+        </div>
+    </div>
+
+    <!-- Barra de progresso -->
+
+    <br>
+    <br />
+    <div *ngIf="load" class="progress-bar progress-bar--material progress-bar--indeterminate">
+    </div>
+
+    <!--Campo de texto-->
+    <div style="margin-top: 5px;"></div>
+    <ons-bottom-toolbar>
+        <textarea (ngModelChange)="changeUpload()" (change)="changeUpload()" [(ngModel)]="tagImg" style="width: 97%;"
+            class="textarea" rows="3" placeholder="Digite as tags aqui(máx 6)"></textarea>
+    </ons-bottom-toolbar>
+</div>
+
+
+<div *ngIf="!sendMenu">
+
+    <!--título da página-->
+
+    <h6 style="color: gainsboro;">Últimas postagens</h6>
+
+    <!--Card normal-->
+
+    <div class="search-results"
+    infinite-scroll
+    [infiniteScrollDistance]="dataService.scrollDistance"
+    [infiniteScrollUpDistance]="dataService.scrollUpDistance"
+    [infiniteScrollThrottle]="dataService.throttle"
+    (scrolled)="dataService.onScrollDown($event)"
+    (scrolledUp)="dataService.onUp($event)">
+    <div *ngFor="let item of dataImgur; let i = index" [attr.data-index]="i" style="text-align: center; margin: 3%;">
+
+        <div *ngIf="item.type != 'video/mp4' && item.type != 'image/gif'" style="height: 330px; overflow: hidden;
+			-webkit-border-radius: 10px;
+			-khtml-border-radius: 10px;	
+			-moz-border-radius: 10px;
+			border-radius: 10px;
+			border-color: rgba(255, 255, 255, 0);
+			width: 100%;
+            min-height: 10px;
+            max-height: 571px;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			display: flex;
+			position: relative;
+			flex-direction: column;
+            justify-content: flex-end;"
+            [ngStyle]="{'background-image': 'url(' + item.link + ')', 'height' : ''+item.height+'px'}">
+            <div
+                style="Position: absolute; Left: 0; Top: 0; margin-left: 5px; color: rgba(1, 1, 1, 0.54); text-shadow: 1px 0 0 rgba(255, 255, 255, 0.247);">
+                <p><small>by: @{{item.user}}</small></p>
+            </div>
+            <div style="Position: absolute; right: 0; top: 0;">
+                <button *ngIf="dataService.isLoggedIn() && dataService.getToken() == 'Admin'" type="button" class="mdl-chip__action"><i
+                        (click)="deleteImage(item.Id)" class="material-icons">cancel</i></button>
+            </div>
+            <div style="background: rgba(1, 1, 1, 0.300); margin-top: 5px;">
+                <div>
+
+                    <!-- TAGs (Material Design CSS) -->
+                    <span *ngFor="let tag of tagsImg[i]" class="mdl-chip" style="margin: 1%; margin-top: 10px;">
+                        <span class="mdl-chip__text"
+                            style="flex: content; justify-content: center;"><small>{{tag}}</small></span>
+                    </span>
+                </div>
+                <!-- BOTOES -->
+                <div style="display: flex; justify-content: center;">
+
+                    <!-- BOTAO SALVAR -->
+                    <a [href]="item.link" download="myimage">
+                        <svg style="isolation:isolate; margin-right: 30px;" viewBox="0 0 40 40" width="40pt"
+                            height="40pt">
+                            <defs>
+                                <clipPath id="_clipPath_x0QLUC36ibOtKnFfYDZ6kcyTqkDQ5Wys">
+                                    <rect width="40" height="40" />
+                                </clipPath>
+                            </defs>
+                            <g clip-path="url(#_clipPath_x0QLUC36ibOtKnFfYDZ6kcyTqkDQ5Wys)">
+                                <path
+                                    d=" M 18.422 6.531 L 18.422 20.266 L 13.294 14.776 L 11.076 17.176 L 20 26.822 L 28.924 17.176 L 26.706 14.778 L 21.578 20.264 L 21.578 6.531 L 18.422 6.531 Z  M 4.222 19.294 L 4.222 29.528 C 4.222 31.394 5.652 32.939 7.378 32.939 L 32.622 32.939 C 34.348 32.939 35.778 31.394 35.778 29.528 L 35.778 19.294 L 32.622 19.294 L 32.622 29.528 L 7.378 29.528 L 7.378 19.294 L 4.222 19.294 Z "
+                                    fill="rgb(255,255,255)" />
+                            </g>
+                        </svg>
+                    </a>
+                    <!-- BOTAO Compartilhar -->
+                    <a>
+                        <svg style="isolation:isolate; margin-left: 30px;" viewBox="0 0 40 40" width="40pt"
+                            height="40pt">
+                            <defs>
+                                <clipPath id="_clipPath_ozKibz5EjweBmEbRTQ04xCQbgq8euYBL">
+                                    <rect width="40" height="40" />
+                                </clipPath>
+                            </defs>
+                            <g clip-path="url(#_clipPath_ozKibz5EjweBmEbRTQ04xCQbgq8euYBL)">
+                                <path
+                                    d=" M 28.18 6.531 C 25.921 6.531 24.09 8.34 24.09 10.571 C 24.09 10.834 24.127 11.077 24.176 11.33 L 14.459 16.926 C 13.724 16.303 12.788 15.96 11.82 15.959 C 9.561 15.959 7.729 17.768 7.729 20 C 7.729 22.232 9.561 24.041 11.82 24.041 C 12.831 24.041 13.747 23.673 14.462 23.072 L 24.176 28.67 C 24.123 28.92 24.094 29.174 24.09 29.429 C 24.09 31.66 25.921 33.469 28.18 33.469 C 30.439 33.469 32.271 31.66 32.271 29.429 C 32.271 27.197 30.439 25.388 28.18 25.388 C 27.169 25.388 26.253 25.755 25.538 26.356 L 15.824 20.757 C 15.873 20.506 15.91 20.263 15.91 20 C 15.91 19.737 15.873 19.495 15.824 19.242 L 25.54 13.644 C 26.274 14.268 27.211 14.611 28.18 14.612 C 30.439 14.612 32.271 12.803 32.271 10.571 C 32.271 8.34 30.439 6.531 28.18 6.531 Z "
+                                    fill="rgb(255,255,255)" />
+                            </g>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="item.type == 'video/mp4' || item.type == 'image/gif'" style="height: 320px;  width: auto;
+						overflow: hidden;
+			
+			-webkit-border-radius: 10px;
+			-khtml-border-radius: 10px;	
+			-moz-border-radius: 10px;
+			border-radius: 10px;
+			border: rgba(1, 1, 1, 0.54);
+			background: rgba(0, 0, 0, 0); margin-top: 5px;;
+			width: 100%;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			display: flex;
+			position: relative;
+			flex-direction: column;
+			justify-content: flex-end;">
+            <div
+                style="position: absolute; left: 0; top: 0; display: flex; justify-content: center; margin-bottom: -5px; margin-top: 0px; height: 100%; width: 100%; z-index: -1">
+                <video autoplay muted loop>
+                    <source [src]="item.mp4" type="video/mp4">
+                    Seu dispositivo não suporta este tipo video.
+                </video>
+            </div>
+
+
+            <div
+                style="Position: absolute; Left: 0; Top: 0; margin-left: 5px; color: rgba(136, 94, 94, 0.54); text-shadow: 1px 0 0 rgba(255, 255, 255, 0.247);">
+                <p><small>by: @andre_dono</small></p>
+            </div>
+            <div style="Position: absolute; right: 0; top: 0;">
+                <button *ngIf="loggedIn && user.firstName == 'Lucas'" type="button" class="mdl-chip__action"><i
+                        (click)="deleteImage(item.Id)" class="material-icons">cancel</i></button>
+            </div>
+            <div style="background: rgba(1, 1, 1, 0.300); margin-top: 5px;">
+                <div>
+
+                    <!-- TAGs (Material Design CSS) -->
+                    <span *ngFor="let tag of tagsImg[i]" class="mdl-chip" style="margin: 1%; margin-top: 10px;">
+                        <span class="mdl-chip__text"
+                            style="flex: content; justify-content: center;"><small>{{tag}}</small></span>
+                    </span>
+                </div>
+                <!-- BOTOES -->
+                <div style="display: flex; justify-content: center;">
+
+                    <!-- BOTAO SALVAR -->
+                    <a [href]="item.mp4" download="myimage">
+                        <svg style="isolation:isolate; margin-right: 30px;" viewBox="0 0 40 40" width="40pt"
+                            height="40pt">
+                            <defs>
+                                <clipPath id="_clipPath_x0QLUC36ibOtKnFfYDZ6kcyTqkDQ5Wys">
+                                    <rect width="40" height="40" />
+                                </clipPath>
+                            </defs>
+                            <g clip-path="url(#_clipPath_x0QLUC36ibOtKnFfYDZ6kcyTqkDQ5Wys)">
+                                <path
+                                    d=" M 18.422 6.531 L 18.422 20.266 L 13.294 14.776 L 11.076 17.176 L 20 26.822 L 28.924 17.176 L 26.706 14.778 L 21.578 20.264 L 21.578 6.531 L 18.422 6.531 Z  M 4.222 19.294 L 4.222 29.528 C 4.222 31.394 5.652 32.939 7.378 32.939 L 32.622 32.939 C 34.348 32.939 35.778 31.394 35.778 29.528 L 35.778 19.294 L 32.622 19.294 L 32.622 29.528 L 7.378 29.528 L 7.378 19.294 L 4.222 19.294 Z "
+                                    fill="rgb(255,255,255)" />
+                            </g>
+                        </svg>
+                    </a>
+                    <!-- BOTAO Compartilhar -->
+                    <a>
+                        <svg style="isolation:isolate; margin-left: 30px;" viewBox="0 0 40 40" width="40pt"
+                            height="40pt">
+                            <defs>
+                                <clipPath id="_clipPath_ozKibz5EjweBmEbRTQ04xCQbgq8euYBL">
+                                    <rect width="40" height="40" />
+                                </clipPath>
+                            </defs>
+                            <g clip-path="url(#_clipPath_ozKibz5EjweBmEbRTQ04xCQbgq8euYBL)">
+                                <path
+                                    d=" M 28.18 6.531 C 25.921 6.531 24.09 8.34 24.09 10.571 C 24.09 10.834 24.127 11.077 24.176 11.33 L 14.459 16.926 C 13.724 16.303 12.788 15.96 11.82 15.959 C 9.561 15.959 7.729 17.768 7.729 20 C 7.729 22.232 9.561 24.041 11.82 24.041 C 12.831 24.041 13.747 23.673 14.462 23.072 L 24.176 28.67 C 24.123 28.92 24.094 29.174 24.09 29.429 C 24.09 31.66 25.921 33.469 28.18 33.469 C 30.439 33.469 32.271 31.66 32.271 29.429 C 32.271 27.197 30.439 25.388 28.18 25.388 C 27.169 25.388 26.253 25.755 25.538 26.356 L 15.824 20.757 C 15.873 20.506 15.91 20.263 15.91 20 C 15.91 19.737 15.873 19.495 15.824 19.242 L 25.54 13.644 C 26.274 14.268 27.211 14.611 28.18 14.612 C 30.439 14.612 32.271 12.803 32.271 10.571 C 32.271 8.34 30.439 6.531 28.18 6.531 Z "
+                                    fill="rgb(255,255,255)" />
+                            </g>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+
+
+    <!--Card vídeo-->
+
+
+
+
+    <br>
+
+
+    <!--Card ADS-->
+
+
+    <div style="text-align: center; margin: 3%;">
+        <a href="#">
+            <div style="height: 330px; overflow: hidden;
+				-webkit-border-radius: 10px;
+				-khtml-border-radius: 10px;	
+				-moz-border-radius: 10px;
+				border-radius: 10px;
+				background: url(https://www.idealmarketing.com.br/blog/wp-content/uploads/2018/06/marketing-digital-lateral.png);
+				width: 100%;
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;">
+                <div style="background:rgba(1, 1, 1, 0.300); margin-top: 5px;">
+
+                    <!-- BOTOES -->
+                    <div style="display: flex; justify-content: center;">
+                    </div>
+                </div>
+            </div>
+            <!-- <img src="https://blog.bling.com.br/wp-content/uploads/2017/12/12618-NOJLQI.jpg" alt="Baixar" style="z-index: -1; width: 100%; height: 100%; align-content: center; border-radius: 1%;"> -->
+        </a>
+
+        <div class="content">
+
+
+
+            <br>
+
+
+        </div>
+    </div>
+    <br>
+</div>
+</div>
+<!-- <a routerLink="/hardcoreking" routerLinkActive="active">KING</a> -->
+
+<!-- Alerta -->
+<div *ngIf="alerta">
+    <div class="alert-dialog-mask"></div>
+    <div class="alert-dialog">
+        <div class="alert-dialog-container">
+            <div class="alert-dialog-content">
+                {{alertaTexto}}
+            </div>
+
+            <div class="alert-dialog-footer">
+                <button (click)="alertaController('')"
+                    class="alert-dialog-button alert-dialog-button--primal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Aleta Upload -->
+<div *ngIf="alertaUpload">
+    <div class="alert-dialog-mask"></div>
+    <div class="alert-dialog">
+        <div class="alert-dialog-container">
+            <div class="alert-dialog-content">
+                Mídia enviada com sucesso!
+            </div>
+
+            <div class="alert-dialog-footer">
+                <button (click)="alertaUpload = false ; sendMenuToggle();"
+                    class="alert-dialog-button alert-dialog-button--primal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>

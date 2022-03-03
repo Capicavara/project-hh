@@ -1,0 +1,122 @@
+<ons-toolbar>   
+  <div class="right">
+    <span class="toolbar-button toolbar-button--material">
+      <i class="zmdi zmdi-plus"></i>
+    </span>
+  </div>
+</ons-toolbar>
+
+<!--Campo imagem de perfil-->
+<ons-card *ngIf="loggedIn===false">
+  <div style="text-align: center; padding: 0px;">
+    <img src="https://logodownload.org/wp-content/uploads/2019/07/loggi-logo.png" style="width: 200px; height: 100%; align-content: center; padding: 10%;" alt="Logo">
+
+
+<!--Campo login-->
+
+    <p>
+      <ons-input id="nickname" modifier="underbar" placeholder="Nickname" float></ons-input>
+    </p>
+    <p>
+      <ons-input id="senha" modifier="underbar" type="password" placeholder="Senha" float></ons-input>
+    </p>
+    <div style="text-align: center; padding: 5px;">
+    <p style="margin-top: 5px;">
+      <ons-button id="#push-button" (click)="signInWithFB()" >Entrar</ons-button>
+      <ons-button routerLink="/register" routerLinkActive="active">Cadastrar</ons-button>
+    </p>
+    </div>
+    <span class="mdl-chip" style="margin: 3%; align-content: center;">
+      <span class="mdl-chip__text" >Texto informativo de login</span>
+    </span>
+          <!--Add buttons to initiate auth sequence and sign out-->
+          <button id="authorize_button" style="display: none;">Authorize</button>
+          <button id="signout_button" style="display: none;">Sign Out</button>
+      
+          <pre id="content" style="white-space: pre-wrap;"></pre>
+    </div>
+
+</ons-card>
+
+<!-- Se Logado -->
+<div *ngIf="loggedIn">
+
+          
+
+<!--Card informações do perfil-->
+  
+  <ons-card>
+    <div style="text-align: center">
+                  <a href="#" > <img [src]="user" alt="Baixar" style="width: 50px; height: 50px; text-align: center; border-radius: 100%;"></a>
+                  <div class="list-item__title list-item--material__title">@{{user}}</div>
+
+<!-- Botao Seguindo -->
+          <span class="mdl-chip" style="margin: 1%; background-color:black; color: white;">
+            <span class="mdl-chip__text" >Seguindo</span>
+          </span>
+
+                  <div class="list-item__subtitle list-item--material__subtitle">esta é minha descrição massa bixo sei la oq escrevo aqui  isso é só um exemplo máximo 50 caracteres</div>
+                  <p style="margin-top: 5px;">
+                    <ons-button (click)="signOut()">Deslogar</ons-button>
+                  </p>
+      <div class="content">
+        </div>
+      
+    </div>
+</ons-card>
+<!--título da página-->
+  
+<h5 style="color: gainsboro;" >Postagens deste perfil:</h5>
+
+<!--Card normal-->
+  
+<ons-card>
+  <div style="text-align: center">
+      <a href="#" > <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjtbT0GPAvCv_BaxTDO1AQkByLVbUYfJc_wv9X7sgfgxDUGK5P-Q&s" alt="Baixar" style="z-index: -1; width: 100%; height: 100%; align-content: center; border-radius: 1%;"></a>
+      
+      <div class="content">
+          
+<!-- BOTOES -->
+          
+          <br>
+          <div>	
+              <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjtbT0GPAvCv_BaxTDO1AQkByLVbUYfJc_wv9X7sgfgxDUGK5P-Q&s" download="myimage"><i class="material-icons" style="font-size: 3em; color: gainsboro;">
+                  save
+              </i></a>
+              <i class="material-icons" style="font-size: 3em; margin-left: 2em; color: gainsboro;">
+                  share
+              </i>
+          </div>
+          <div>
+<!-- TAGs (Material Design CSS) -->
+
+              <span class="mdl-chip" style="margin: 1%;">
+                  <span class="mdl-chip__text" >Exemplo Tag</span>
+              </span>
+              
+              <span class="mdl-chip" style="margin: 1%;">
+                  <span class="mdl-chip__text">Exemplo Tag</span>
+              </span>
+
+              <span class="mdl-chip" style="margin: 1%;">
+                  <span class="mdl-chip__text">Exemplo Tag</span>
+              </span>
+
+              <span class="mdl-chip" style="margin: 1%;">
+                      <span class="mdl-chip__text">Exemplo Tag</span>
+              </span>
+
+              <span class="mdl-chip" style="margin: 1%;">
+                      <span class="mdl-chip__text">Exemplo Tag</span>
+              </span>
+
+              <span class="mdl-chip" style="margin: 1%;">
+                      <span class="mdl-chip__text">Exemplo Tag</span>
+              </span>
+          </div>
+      </div>
+  </div>
+</ons-card>
+<br>
+<br>
+</div>
